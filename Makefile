@@ -1,3 +1,4 @@
+include Makefile.src Makefile.comp Makefile.dependencies
 
 #Release
 #Debug
@@ -26,6 +27,7 @@ define generate_common
 	cd build_$(1) && cmake -G"Unix Makefiles"           \
 	$(COMMON_DEFINITIONS)                               \
 	$(2)                                                \
+	-DMUSLINC=$(MUSLINC)                                \
 	-DCMAKE_TOOLCHAIN_FILE=../toolchain/$(1).cmake ..
 endef
 
